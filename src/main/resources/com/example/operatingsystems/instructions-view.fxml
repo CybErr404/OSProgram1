@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.operatingsystems.OperationsView">
+    <children>
+        <Label alignment="CENTER" layoutX="29.0" prefHeight="57.0" prefWidth="542.0" text="Welcome to the expression evaluator!" textAlignment="CENTER" textOverrun="CLIP">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+      <Label layoutX="111.0" layoutY="46.0" text="If you would like to continue, click the &quot;Continue&quot; button.">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="168.0" layoutY="66.0" text="Otherwise, please close this application.">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button layoutX="251.0" layoutY="335.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" onAction="#onContinueClick" text="Continue">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" layoutX="28.0" layoutY="86.0" prefHeight="57.0" prefWidth="542.0" text="Instructions:" textAlignment="CENTER" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_CENTER" layoutX="29.0" layoutY="128.0" prefHeight="57.0" prefWidth="542.0" text="After clicking the &quot;Continue&quot; button, you will see an expression evaluation screen. Enter the expression you would like to evaluate in proper mathematical format. Examples of this include the following:" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_CENTER" layoutX="122.0" layoutY="186.0" prefHeight="27.0" prefWidth="353.0" text="3 * 5 / 8 + 12 - 38" textAlignment="CENTER" wrapText="true" />
+      <Label alignment="TOP_CENTER" layoutX="122.0" layoutY="207.0" prefHeight="27.0" prefWidth="353.0" text="5 - 3 / 2 + 9" textAlignment="CENTER" wrapText="true" />
+      <Label alignment="TOP_CENTER" layoutX="29.0" layoutY="236.0" prefHeight="57.0" prefWidth="542.0" text="Once you have entered your expression into the text box provided, click the &quot;Evaluate&quot; button to begin evaluating. The steps for solving your expression will be listed along with the final answer." textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_CENTER" layoutX="29.0" layoutY="309.0" prefHeight="27.0" prefWidth="542.0" text="Ready to evaluate expressions? Click &quot;Continue!&quot;" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="214.0" layoutY="371.0" text="Written and programmed by: Mia Watts">
+         <font>
+            <Font name="System Italic" size="10.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>
