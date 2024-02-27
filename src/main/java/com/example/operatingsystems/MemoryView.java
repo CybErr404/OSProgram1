@@ -2,15 +2,14 @@ package com.example.operatingsystems;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Stack;
 
 public class MemoryView {
     private int X; //fixed partitioning memory size
     private int Y; //dynamic partitioning memory size
-    private String Z; //string address
     private ArrayList<Integer> fixedJobArray; // holds job sizes for fixed memory allocation
     private ArrayList<Integer> fixedMemoryRequirementArray; // holds memory requirements for fixed memory allocation
     private ArrayList<Integer> dynamicJobArray; // holds job sizes for dynamic memory allocation
@@ -37,11 +36,17 @@ public class MemoryView {
     @FXML
     private Button nfDynamicButton;
 
+    // creation of result labels
+    @FXML
+    private Label fixedResultLabel;
+
+    @FXML
+    private Label dynamicResultLabel;
+
     public MemoryView() // initializes the private variables declared above.
     {
         X = 10000;
         Y = 10000;
-        Z = "Address 1";
 
         fixedJobArray = new ArrayList<>(Arrays.asList(2500, 250, 100, 50, 150));
         fixedMemoryRequirementArray = new ArrayList<>(Arrays.asList(3500, 2500, 1500, 500, 2000));
@@ -51,8 +56,10 @@ public class MemoryView {
     }
 
     @FXML
-    protected void onFirstFixedClick() {
+    protected void onFirstFixedClick() { //sorts by memory location from memory address array
+        for(int i = 0; i < fixedJobArray.size(); i++) {
 
+        }
     }
 
     @FXML

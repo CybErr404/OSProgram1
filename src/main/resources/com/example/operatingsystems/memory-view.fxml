@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="464.0" prefWidth="671.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.operatingsystems.MemoryView">
    <children>
-      <Button fx:id="ffFixedButton" layoutX="51.0" layoutY="137.0" mnemonicParsing="false" text="First-Fit Fixed" />
+      <Button fx:id="ffFixedButton" layoutX="51.0" layoutY="137.0" mnemonicParsing="false" onAction="#onFirstFixedClick" text="First-Fit Fixed" />
       <Label layoutX="196.0" layoutY="14.0" text="Memory Allocation Schemes">
          <font>
             <Font name="System Bold" size="20.0" />
@@ -23,9 +23,9 @@
             <Font name="System Italic" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="bfFixedButton" layoutX="201.0" layoutY="137.0" mnemonicParsing="false" text="Best-Fit Fixed" />
-      <Button fx:id="nfFixedButton" layoutX="513.0" layoutY="137.0" mnemonicParsing="false" text="Next-Fit Fixed" />
-      <Button fx:id="wfFixedButton" layoutX="362.0" layoutY="137.0" mnemonicParsing="false" text="Worst-Fit Fixed" />
+      <Button fx:id="bfFixedButton" layoutX="201.0" layoutY="137.0" mnemonicParsing="false" onAction="#onBestFixedClick" text="Best-Fit Fixed" />
+      <Button fx:id="nfFixedButton" layoutX="513.0" layoutY="137.0" mnemonicParsing="false" onAction="#onWorstFixedClick" text="Next-Fit Fixed" />
+      <Button fx:id="wfFixedButton" layoutX="362.0" layoutY="137.0" mnemonicParsing="false" onAction="#onNextFixedClick" text="Worst-Fit Fixed" />
       <Label layoutX="245.0" layoutY="99.0" text="Fixed Memory Allocation:" wrapText="true">
          <font>
             <Font name="System Bold" size="14.0" />
@@ -36,9 +36,11 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="ffDynamicButton" layoutX="41.0" layoutY="289.0" mnemonicParsing="false" text="First-Fit Dynamic" />
-      <Button fx:id="bfDynamicButton" layoutX="192.0" layoutY="289.0" mnemonicParsing="false" text="Best-Fit Dynamic" />
-      <Button fx:id="wfDynamicButton" layoutX="353.0" layoutY="289.0" mnemonicParsing="false" text="Worst-Fit Dynamic" />
-      <Button fx:id="nfDynamicButton" layoutX="504.0" layoutY="289.0" mnemonicParsing="false" text="Next-Fit Dynamic" />
+      <Button fx:id="ffDynamicButton" layoutX="41.0" layoutY="289.0" mnemonicParsing="false" onAction="#onFirstDynamicClick" text="First-Fit Dynamic" />
+      <Button fx:id="bfDynamicButton" layoutX="192.0" layoutY="289.0" mnemonicParsing="false" onAction="#onBestDynamicClick" text="Best-Fit Dynamic" />
+      <Button fx:id="wfDynamicButton" layoutX="353.0" layoutY="289.0" mnemonicParsing="false" onAction="#onWorstDynamicClick" text="Worst-Fit Dynamic" />
+      <Button fx:id="nfDynamicButton" layoutX="504.0" layoutY="289.0" mnemonicParsing="false" onAction="#onNextDynamicClick" text="Next-Fit Dynamic" />
+      <Label fx:id="fixedResultLabel" alignment="TOP_CENTER" layoutX="54.0" layoutY="174.0" prefHeight="80.0" prefWidth="551.0" textAlignment="CENTER" wrapText="true" />
+      <Label fx:id="dynamicResultLabel" alignment="TOP_CENTER" layoutX="51.0" layoutY="324.0" prefHeight="98.0" prefWidth="551.0" wrapText="true" />
    </children>
 </AnchorPane>
