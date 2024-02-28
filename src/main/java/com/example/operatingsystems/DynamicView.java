@@ -1,13 +1,20 @@
 package com.example.operatingsystems;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class DynamicView {
+    public Label dynamicResultLabel;
     private int Y; //dynamic partitioning memory size
 
     private StringBuilder answerString;
@@ -27,8 +34,9 @@ public class DynamicView {
     private Button wfDynamicButton;
     @FXML
     private Button nfDynamicButton;
+
     @FXML
-    private Label dynamicResultLabel;
+    private Button switchFixedButton;
 
     public DynamicView() // initializes the private variables declared above.
     {
@@ -59,5 +67,14 @@ public class DynamicView {
     @FXML
     protected void onNextDynamicClick() {
 
+    }
+
+    @FXML
+    protected void onSwitchFixedClick(javafx.event.ActionEvent event) throws IOException {
+        Parent p = FXMLLoader.load(getClass().getResource("fixed-view.fxml"));
+        Scene s = new Scene(p);
+        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        appStage.setScene(s);
+        appStage.show();
     }
 }

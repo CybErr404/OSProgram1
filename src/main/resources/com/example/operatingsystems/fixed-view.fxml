@@ -31,6 +31,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="fixedResultLabel" alignment="TOP_CENTER" layoutX="54.0" layoutY="174.0" prefHeight="253.0" prefWidth="551.0" textAlignment="CENTER" wrapText="true" />
+      <Label fx:id="fixedResultLabel" alignment="TOP_CENTER" layoutX="54.0" layoutY="168.0" prefHeight="242.0" prefWidth="551.0" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="switchDynamicButton" layoutX="279.0" layoutY="414.0" mnemonicParsing="false" onAction="#onSwitchDynamicClick" text="Switch to Dynamic" />
    </children>
 </AnchorPane>

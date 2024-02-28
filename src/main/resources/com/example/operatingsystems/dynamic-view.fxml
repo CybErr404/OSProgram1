@@ -31,7 +31,7 @@
         <Button fx:id="bfDynamicButton" layoutX="192.0" layoutY="137.0" mnemonicParsing="false" onAction="#onBestDynamicClick" text="Best-Fit Dynamic" />
         <Button fx:id="wfDynamicButton" layoutX="349.0" layoutY="137.0" mnemonicParsing="false" onAction="#onWorstDynamicClick" text="Worst-Fit Dynamic" />
         <Button fx:id="nfDynamicButton" layoutX="506.0" layoutY="137.0" mnemonicParsing="false" onAction="#onNextDynamicClick" text="Next-Fit Dynamic" />
-        <Label fx:id="fixedResultLabel" alignment="TOP_CENTER" layoutX="54.0" layoutY="174.0" prefHeight="80.0" prefWidth="551.0" textAlignment="CENTER" wrapText="true" />
-        <Label id="dynamicResultLabel" fx:id="dynamicResultLabel" alignment="TOP_CENTER" layoutX="54.0" layoutY="174.0" prefHeight="244.0" prefWidth="551.0" wrapText="true" />
+        <Label fx:id="dynamicResultLabel" alignment="TOP_CENTER" layoutX="54.0" layoutY="174.0" prefHeight="80.0" prefWidth="551.0" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="switchFixedButton" layoutX="279.0" layoutY="412.0" mnemonicParsing="false" onAction="#onSwitchFixedClick" text="Switch to Fixed" />
     </children>
 </AnchorPane>

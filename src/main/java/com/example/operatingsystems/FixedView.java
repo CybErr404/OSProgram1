@@ -1,9 +1,15 @@
 package com.example.operatingsystems;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -27,6 +33,9 @@ public class FixedView {
     private Button wfFixedButton;
     @FXML
     private Button nfFixedButton;
+
+    @FXML
+    private Button switchDynamicButton;
 
     // creation of result labels
     @FXML
@@ -77,5 +86,14 @@ public class FixedView {
     @FXML
     protected void onNextFixedClick() {
 
+    }
+
+    @FXML
+    protected void onSwitchDynamicClick(javafx.event.ActionEvent event) throws IOException {
+        Parent p = FXMLLoader.load(getClass().getResource("dynamic-view.fxml"));
+        Scene s = new Scene(p);
+        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        appStage.setScene(s);
+        appStage.show();
     }
 }
