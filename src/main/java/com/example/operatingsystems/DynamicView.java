@@ -7,24 +7,16 @@ import javafx.scene.control.Label;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class MemoryView {
-    private int X; //fixed partitioning memory size
+public class DynamicView {
     private int Y; //dynamic partitioning memory size
-    private ArrayList<Integer> fixedJobArray; // holds job sizes for fixed memory allocation
-    private ArrayList<Integer> fixedMemoryRequirementArray; // holds memory requirements for fixed memory allocation
+
+    private StringBuilder answerString;
+
+    private int fragmentationValue; // holds the total fragmentation value for each allocation scheme
+
     private ArrayList<Integer> dynamicJobArray; // holds job sizes for dynamic memory allocation
     private ArrayList<Integer> dynamicMemoryRequirementArray; // holds memory requirements for dynamic memory allocation
     private ArrayList<Integer> memoryAddresses; // holds memory addresses for jobs
-
-    // creation of all buttons related to fixed memory allocation.
-    @FXML
-    private Button ffFixedButton;
-    @FXML
-    private Button bfFixedButton;
-    @FXML
-    private Button wfFixedButton;
-    @FXML
-    private Button nfFixedButton;
 
     // creation of all buttons related to dynamic memory allocation
     @FXML
@@ -35,46 +27,18 @@ public class MemoryView {
     private Button wfDynamicButton;
     @FXML
     private Button nfDynamicButton;
-
-    // creation of result labels
-    @FXML
-    private Label fixedResultLabel;
-
     @FXML
     private Label dynamicResultLabel;
 
-    public MemoryView() // initializes the private variables declared above.
+    public DynamicView() // initializes the private variables declared above.
     {
-        X = 10000;
         Y = 10000;
+        fragmentationValue = 0;
+        answerString = new StringBuilder("");
 
-        fixedJobArray = new ArrayList<>(Arrays.asList(2500, 250, 100, 50, 150));
-        fixedMemoryRequirementArray = new ArrayList<>(Arrays.asList(3500, 2500, 1500, 500, 2000));
         dynamicJobArray = new ArrayList<>(Arrays.asList(200, 125, 3500, 400, 500));
         dynamicMemoryRequirementArray = new ArrayList<>();
         memoryAddresses = new ArrayList<>(Arrays.asList(10, 25, 150, 225, 300));
-    }
-
-    @FXML
-    protected void onFirstFixedClick() { //sorts by memory location from memory address array
-        for(int i = 0; i < fixedJobArray.size(); i++) {
-
-        }
-    }
-
-    @FXML
-    protected void onBestFixedClick() {
-
-    }
-
-    @FXML
-    protected void onWorstFixedClick() {
-
-    }
-
-    @FXML
-    protected void onNextFixedClick() {
-
     }
 
     @FXML
