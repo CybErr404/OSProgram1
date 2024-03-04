@@ -57,6 +57,7 @@ public class FixedView {
 
     @FXML
     protected void onFirstFixedClick() { //sorts by memory location from memory address array
+        fixedResultLabel.setText("");
         for(int i = 0; i < fixedJobSizeArray.size(); i++) {
             for(int j = 0; j < fixedMemoryRequirementArray.size(); j++) {
                 if (fixedJobSizeArray.get(i) <= fixedMemoryRequirementArray.get(j)) {
@@ -72,27 +73,195 @@ public class FixedView {
                     fixedMemoryRequirementArray.set(j, 0);
                     break;
                 }
-//                else if (fixedJobSizeArray.get(i) > fixedMemoryRequirementArray.get(j)) {
-//                    answerString.append("Job ").append(i).append(" has to wait! ");
-//                }
             }
         }
         answerString.append("\nFragmentation: ").append(fragmentationValue);
         fixedResultLabel.setText(String.valueOf(answerString));
     }
 
+    // there is probably a better way to do this, but I've done it like this for time's sake rn
     @FXML
     protected void onBestFixedClick() {
-
+        fixedResultLabel.setText("");
+        int minimum = X;
+        ArrayList<Integer> differenceArray = new ArrayList<>();
+        for(int i = 0; i < fixedJobSizeArray.size(); i++) {
+            for(int j = 0; j < fixedMemoryRequirementArray.size(); j++) {
+                differenceArray.add((fixedMemoryRequirementArray.get(j) - fixedJobSizeArray.get(i)));
+            }
+        }
+        int index = 0;
+        for(int i = 0; i < 5; i++) {
+            if(differenceArray.get(i) < minimum && differenceArray.get(i) >= 0) {
+                minimum = differenceArray.get(i);
+                index = i;
+            }
+        }
+        answerString.append("Job ").append(0).append(" has been placed in Memory Location ")
+                .append(index).append(".\n");
+        memoryList.add(String.valueOf(fixedMemoryRequirementArray.get(index)));
+        memoryList.add(String.valueOf(memoryAddresses.get(0)));
+        memoryList.add("Job " + 0);
+        memoryList.add("Busy");
+        answerString.append(memoryList).append("\n");
+        fragmentationValue = fragmentationValue + minimum;
+        minimum = differenceArray.get(0);
+        for(int i = 5; i < 10; i++) {
+            if(differenceArray.get(i) < minimum && differenceArray.get(i) >= 0) {
+                minimum = differenceArray.get(i);
+                index = i;
+            }
+        }
+        answerString.append("Job ").append(1).append(" has been placed in Memory Location ")
+                .append(index - 5).append(".\n");
+        memoryList.add(String.valueOf(fixedMemoryRequirementArray.get(index - 5)));
+        memoryList.add(String.valueOf(memoryAddresses.get(1)));
+        memoryList.add("Job " + 1);
+        memoryList.add("Busy");
+        answerString.append(memoryList).append("\n");
+        fragmentationValue = fragmentationValue + minimum;
+        minimum = differenceArray.get(1);
+        for(int i = 10; i < 15; i++) {
+            if(differenceArray.get(i) < minimum && differenceArray.get(i) >= 0) {
+                minimum = differenceArray.get(i);
+                index = i;
+            }
+        }
+        answerString.append("Job ").append(2).append(" has been placed in Memory Location ")
+                .append(index - 5).append(".\n");
+        memoryList.add(String.valueOf(fixedMemoryRequirementArray.get(index - 5)));
+        memoryList.add(String.valueOf(memoryAddresses.get(2)));
+        memoryList.add("Job " + 2);
+        memoryList.add("Busy");
+        answerString.append(memoryList).append("\n");
+        fragmentationValue = fragmentationValue + minimum;
+        minimum = differenceArray.get(0);
+        for(int i = 15; i < 20; i++) {
+            if(differenceArray.get(i) < minimum && differenceArray.get(i) >= 0) {
+                minimum = differenceArray.get(i);
+                index = i;
+            }
+        }
+        answerString.append("Job ").append(3).append(" has been placed in Memory Location ")
+                .append(index - 15).append(".\n");
+        memoryList.add(String.valueOf(fixedMemoryRequirementArray.get(index - 15)));
+        memoryList.add(String.valueOf(memoryAddresses.get(3)));
+        memoryList.add("Job " + 3);
+        memoryList.add("Busy");
+        answerString.append(memoryList).append("\n");
+        fragmentationValue = fragmentationValue + minimum;
+        minimum = differenceArray.get(0);
+        for(int i = 20; i < differenceArray.size(); i++) {
+            if(differenceArray.get(i) < minimum && differenceArray.get(i) >= 0) {
+                minimum = differenceArray.get(i);
+                index = i;
+            }
+        }
+        answerString.append("Job ").append(4).append(" has been placed in Memory Location ")
+                .append(index - 20).append(".\n");
+        memoryList.add(String.valueOf(fixedMemoryRequirementArray.get(index - 20)));
+        memoryList.add(String.valueOf(memoryAddresses.get(4)));
+        memoryList.add("Job " + 4);
+        memoryList.add("Busy");
+        answerString.append(memoryList).append("\n");
+        fragmentationValue = fragmentationValue + minimum;
+        answerString.append("\nFragmentation: ").append(fragmentationValue);
+        fixedResultLabel.setText(String.valueOf(answerString));
     }
 
     @FXML
     protected void onWorstFixedClick() {
+        fixedResultLabel.setText("");
+        int maximum = 0;
+        ArrayList<Integer> differenceArray = new ArrayList<>();
+        for(int i = 0; i < fixedJobSizeArray.size(); i++) {
+            for(int j = 0; j < fixedMemoryRequirementArray.size(); j++) {
+                differenceArray.add((fixedMemoryRequirementArray.get(j) - fixedJobSizeArray.get(i)));
+            }
+        }
+        int index = 0;
+        for(int i = 0; i < 5; i++) {
+            if(differenceArray.get(i) > maximum && differenceArray.get(i) >= 0) {
+                maximum = differenceArray.get(i);
+                index = i;
+            }
+        }
+        answerString.append("Job ").append(0).append(" has been placed in Memory Location ")
+                .append(index).append(".\n");
+        memoryList.add(String.valueOf(fixedMemoryRequirementArray.get(index)));
+        memoryList.add(String.valueOf(memoryAddresses.get(0)));
+        memoryList.add("Job " + 0);
+        memoryList.add("Busy");
+        answerString.append(memoryList).append("\n");
+        fragmentationValue = fragmentationValue + maximum;
+        maximum = differenceArray.get(0);
+        for(int i = 5; i < 10; i++) {
+            if(differenceArray.get(i) > maximum && differenceArray.get(i) >= 0) {
+                maximum = differenceArray.get(i);
+                index = i;
+            }
+        }
+        answerString.append("Job ").append(1).append(" has been placed in Memory Location ")
+                .append(index - 5).append(".\n");
+        memoryList.add(String.valueOf(fixedMemoryRequirementArray.get(index - 5)));
+        memoryList.add(String.valueOf(memoryAddresses.get(1)));
+        memoryList.add("Job " + 1);
+        memoryList.add("Busy");
+        answerString.append(memoryList).append("\n");
+        fragmentationValue = fragmentationValue + maximum;
+        maximum = differenceArray.get(1);
+        for(int i = 10; i < 15; i++) {
+            if(differenceArray.get(i) > maximum && differenceArray.get(i) >= 0) {
+                maximum = differenceArray.get(i);
+                index = i;
+            }
+        }
+        answerString.append("Job ").append(2).append(" has been placed in Memory Location ")
+                .append(index - 5).append(".\n");
+        memoryList.add(String.valueOf(fixedMemoryRequirementArray.get(index - 6)));
+        memoryList.add(String.valueOf(memoryAddresses.get(2)));
+        memoryList.add("Job " + 2);
+        memoryList.add("Busy");
+        answerString.append(memoryList).append("\n");
+        fragmentationValue = fragmentationValue + maximum;
+        maximum = differenceArray.get(0);
+        for(int i = 15; i < 20; i++) {
+            if(differenceArray.get(i) > maximum && differenceArray.get(i) >= 0) {
+                maximum = differenceArray.get(i);
+                index = i;
+            }
+        }
+        answerString.append("Job ").append(3).append(" has been placed in Memory Location ")
+                .append(index - 15).append(".\n");
+        memoryList.add(String.valueOf(fixedMemoryRequirementArray.get(index - 15)));
+        memoryList.add(String.valueOf(memoryAddresses.get(3)));
+        memoryList.add("Job " + 3);
+        memoryList.add("Busy");
+        answerString.append(memoryList).append("\n");
+        fragmentationValue = fragmentationValue + maximum;
+        maximum = differenceArray.get(0);
+        for(int i = 20; i < differenceArray.size(); i++) {
+            if(differenceArray.get(i) > maximum && differenceArray.get(i) >= 0) {
+                maximum = differenceArray.get(i);
+                index = i;
+            }
+        }
+        answerString.append("Job ").append(4).append(" has been placed in Memory Location ")
+                .append(index - 20).append(".\n");
+        memoryList.add(String.valueOf(fixedMemoryRequirementArray.get(index - 20)));
+        memoryList.add(String.valueOf(memoryAddresses.get(4)));
+        memoryList.add("Job " + 4);
+        memoryList.add("Busy");
+        answerString.append(memoryList).append("\n");
+        fragmentationValue = fragmentationValue + maximum;
+        answerString.append("\nFragmentation: ").append(fragmentationValue);
+        fixedResultLabel.setText(String.valueOf(answerString));
 
     }
 
     @FXML
     protected void onNextFixedClick() {
+        fixedResultLabel.setText("");
 
     }
 

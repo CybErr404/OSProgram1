@@ -5,33 +5,33 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="464.0" prefWidth="671.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.operatingsystems.DynamicView">
+<AnchorPane prefHeight="472.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.operatingsystems.DynamicView">
     <children>
-        <Label layoutX="196.0" layoutY="14.0" text="Memory Allocation Schemes">
+        <Label layoutX="206.0" layoutY="14.0" text="Memory Allocation Schemes">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
         </Label>
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="116.0" layoutY="36.0" prefHeight="55.0" prefWidth="427.0" text="Welcome to the dynamic memory allocation schemes window! Click on one of the buttons to apply that scheme to the preset data." textAlignment="CENTER" wrapText="true">
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="126.0" layoutY="36.0" prefHeight="55.0" prefWidth="427.0" text="Welcome to the dynamic memory allocation schemes window! Click on one of the buttons to apply that scheme to the preset data." textAlignment="CENTER" wrapText="true">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <Label layoutX="226.0" layoutY="439.0" text="Written and programmed by: Mia Watts" wrapText="true">
+        <Label layoutX="236.0" layoutY="440.0" text="Written and programmed by: Mia Watts" wrapText="true">
             <font>
                 <Font name="System Italic" size="12.0" />
             </font>
         </Label>
-        <Label layoutX="231.0" layoutY="99.0" text="Dynamic Memory Allocation:" wrapText="true">
+        <Label layoutX="244.0" layoutY="99.0" text="Dynamic Memory Allocation:" wrapText="true">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Button fx:id="ffDynamicButton" layoutX="42.0" layoutY="137.0" mnemonicParsing="false" onAction="#onFirstDynamicClick" text="First-Fit Dynamic" />
-        <Button fx:id="bfDynamicButton" layoutX="192.0" layoutY="137.0" mnemonicParsing="false" onAction="#onBestDynamicClick" text="Best-Fit Dynamic" />
-        <Button fx:id="wfDynamicButton" layoutX="349.0" layoutY="137.0" mnemonicParsing="false" onAction="#onWorstDynamicClick" text="Worst-Fit Dynamic" />
-        <Button fx:id="nfDynamicButton" layoutX="506.0" layoutY="137.0" mnemonicParsing="false" onAction="#onNextDynamicClick" text="Next-Fit Dynamic" />
-        <Label fx:id="dynamicResultLabel" alignment="TOP_CENTER" layoutX="54.0" layoutY="174.0" prefHeight="80.0" prefWidth="551.0" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="switchFixedButton" layoutX="279.0" layoutY="412.0" mnemonicParsing="false" onAction="#onSwitchFixedClick" text="Switch to Fixed" />
+        <Button fx:id="ffDynamicButton" layoutX="54.0" layoutY="137.0" mnemonicParsing="false" onAction="#onFirstDynamicClick" text="First-Fit Dynamic" />
+        <Button fx:id="bfDynamicButton" layoutX="206.0" layoutY="137.0" mnemonicParsing="false" onAction="#onBestDynamicClick" text="Best-Fit Dynamic" />
+        <Button fx:id="wfDynamicButton" layoutX="359.0" layoutY="137.0" mnemonicParsing="false" onAction="#onWorstDynamicClick" text="Worst-Fit Dynamic" />
+        <Button fx:id="nfDynamicButton" layoutX="513.0" layoutY="137.0" mnemonicParsing="false" onAction="#onNextDynamicClick" text="Next-Fit Dynamic" />
+        <Label fx:id="dynamicResultLabel" alignment="TOP_CENTER" layoutX="64.0" layoutY="177.0" prefHeight="235.0" prefWidth="551.0" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="switchFixedButton" layoutX="292.0" layoutY="413.0" mnemonicParsing="false" onAction="#onSwitchFixedClick" text="Switch to Fixed" />
     </children>
 </AnchorPane>

@@ -1,3 +1,7 @@
 Manifest-Version: 1.0
-Main-Class: com.example.operatingsystems.OperationsApplication
+Main-Class: com.example.operatingsystems.MemoryApplication
+Class-Path: javafx-controls-19-ea+7-win.jar javafx-base-19-ea+7-win.jar 
+ javafx-fxml-19-ea+7-win.jar javafx-graphics-19-ea+7.jar javafx-graphics
+ -19-ea+7-win.jar javafx-controls-19-ea+7.jar javafx-fxml-19-ea+7.jar ja
+ vafx-base-19-ea+7.jar
 

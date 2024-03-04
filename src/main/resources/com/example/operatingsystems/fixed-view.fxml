@@ -24,8 +24,8 @@
          </font>
       </Label>
       <Button fx:id="bfFixedButton" layoutX="201.0" layoutY="137.0" mnemonicParsing="false" onAction="#onBestFixedClick" text="Best-Fit Fixed" />
-      <Button fx:id="nfFixedButton" layoutX="513.0" layoutY="137.0" mnemonicParsing="false" onAction="#onWorstFixedClick" text="Next-Fit Fixed" />
-      <Button fx:id="wfFixedButton" layoutX="362.0" layoutY="137.0" mnemonicParsing="false" onAction="#onNextFixedClick" text="Worst-Fit Fixed" />
+      <Button fx:id="nfFixedButton" layoutX="513.0" layoutY="137.0" mnemonicParsing="false" onAction="#onNextFixedClick" text="Next-Fit Fixed" />
+      <Button fx:id="wfFixedButton" layoutX="362.0" layoutY="137.0" mnemonicParsing="false" onAction="#onWorstFixedClick" text="Worst-Fit Fixed" />
       <Label layoutX="245.0" layoutY="99.0" text="Fixed Memory Allocation:" wrapText="true">
          <font>
             <Font name="System Bold" size="14.0" />
