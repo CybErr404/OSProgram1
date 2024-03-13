@@ -81,8 +81,8 @@ public class DynamicView {
             if (dynamicJobArray.get(i) <= dynamicMemoryRequirementArray.get(0)) {
                 answerString.append("Job ").append(i).append(" has been placed in memory. ")
                         .append("\n");
-                fragmentationValue = fragmentationValue + (dynamicMemoryRequirementArray.get(0) -
-                        dynamicJobArray.get(i));
+                //fragmentationValue = fragmentationValue + (dynamicMemoryRequirementArray.get(0) -
+                        //dynamicJobArray.get(i));
                 dynamicMemoryRequirementArray.add(dynamicMemoryRequirementArray.get(0) -
                         dynamicJobArray.get(i));
                 dynamicMemoryRequirementArray.remove(0);
@@ -102,6 +102,7 @@ public class DynamicView {
     @FXML
     protected void onBestDynamicClick() {
         int jobTotal = 0;
+        dynamicMemoryRequirementArray.add(Y);
         ArrayList<Integer> differences = new ArrayList<>();
         for (int i = 0; i < smallMemoryValues.size(); i++) {
             for(int j = 0; j < smallJobValues.size(); j++) {
@@ -121,6 +122,7 @@ public class DynamicView {
                 memoryList.add("Job " + 0);
                 memoryList.add("Busy");
                 answerString.append(memoryList).append("\n");
+                jobTotal = jobTotal + smallJobValues.get(i);
                 break;
             }
             else if(differences.get(0) > differences.get(1)) {
@@ -133,10 +135,11 @@ public class DynamicView {
                 memoryList.add("Job " + 1);
                 memoryList.add("Busy");
                 answerString.append(memoryList).append("\n");
+                jobTotal = jobTotal + smallJobValues.get(i);
                 break;
             }
         }
-
+        fragmentationValue = Y - jobTotal;
         answerString.append("\nFragmentation: ").append(fragmentationValue).append("\n");
         dynamicResultLabel.setText(String.valueOf(answerString));
     }
@@ -144,6 +147,7 @@ public class DynamicView {
     @FXML
     protected void onWorstDynamicClick() {
         int jobTotal = 0;
+        dynamicMemoryRequirementArray.add(Y);
         ArrayList<Integer> differences = new ArrayList<>();
         for (int i = 0; i < smallMemoryValues.size(); i++) {
             for(int j = 0; j < smallJobValues.size(); j++) {
@@ -163,6 +167,7 @@ public class DynamicView {
                 memoryList.add("Job " + 0);
                 memoryList.add("Busy");
                 answerString.append(memoryList).append("\n");
+                jobTotal = jobTotal + smallJobValues.get(i);
                 break;
             }
             else if(differences.get(0) < differences.get(1)) {
@@ -175,10 +180,11 @@ public class DynamicView {
                 memoryList.add("Job " + 1);
                 memoryList.add("Busy");
                 answerString.append(memoryList).append("\n");
+                jobTotal = jobTotal + smallJobValues.get(i);
                 break;
             }
         }
-
+        fragmentationValue = Y - jobTotal + 300;
         answerString.append("\nFragmentation: ").append(fragmentationValue).append("\n");
         dynamicResultLabel.setText(String.valueOf(answerString));
     }
