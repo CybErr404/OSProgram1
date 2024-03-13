@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class FixedView {
     private int X; //fixed partitioning memory size
@@ -64,8 +65,8 @@ public class FixedView {
         memoryAddresses = new ArrayList<>(Arrays.asList(10, 25, 150, 225, 300));
         memoryList = new ArrayList<>();
         busyArray = new ArrayList<>(Arrays.asList("Free", "Free", "Free", "Free", "Free"));
-        smallJobValues = new ArrayList<>(Arrays.asList(500, 200));
-        smallMemoryValues = new ArrayList<>(Arrays.asList(6000, 4000));
+        smallJobValues = new ArrayList<>(Arrays.asList(1500, 200));
+        smallMemoryValues = new ArrayList<>(List.of(6000));
         bigJob = 10000;
     }
 
@@ -102,14 +103,40 @@ public class FixedView {
         ArrayList<Integer> differences = new ArrayList<>();
         for (int i = 0; i < smallMemoryValues.size(); i++) {
             for(int j = 0; j < smallJobValues.size(); j++) {
-                //first two values are differences between memory and job 1,
-                //second two values are differences between memory and job 2
+                //first value is difference between memory and job 1,
+                //second value is difference between memory and job 2
                 differences.add(smallMemoryValues.get(i) - smallJobValues.get(j));
             }
         }
         for(int i = 0; i < smallJobValues.size(); i++) {
-
+            if(differences.get(0) < differences.get(1)) {
+                answerString.append("Job ").append(0).append(" has been placed in Memory Location ")
+                        .append(0).append(".\n");
+                fragmentationValue = fragmentationValue + (smallMemoryValues.get(0) -
+                        smallJobValues.get(0));
+                memoryList.add(String.valueOf(fixedMemoryRequirementArray.get(0)));
+                memoryList.add(String.valueOf(memoryAddresses.get(i)));
+                memoryList.add("Job " + 0);
+                memoryList.add("Busy");
+                answerString.append(memoryList).append("\n");
+                break;
+            }
+            else if(differences.get(0) > differences.get(1)) {
+                answerString.append("Job ").append(1).append(" has been placed in Memory Location ")
+                        .append(1).append(".\n");
+                fragmentationValue = fragmentationValue + (smallMemoryValues.get(1) -
+                        smallJobValues.get(1));
+                memoryList.add(String.valueOf(smallMemoryValues.get(1)));
+                memoryList.add(String.valueOf(memoryAddresses.get(i)));
+                memoryList.add("Job " + 1);
+                memoryList.add("Busy");
+                answerString.append(memoryList).append("\n");
+                break;
+            }
         }
+
+        answerString.append("\nFragmentation: ").append(fragmentationValue).append("\n");
+        fixedResultLabel.setText(String.valueOf(answerString));
     }
 
     @FXML
@@ -117,11 +144,40 @@ public class FixedView {
         ArrayList<Integer> differences = new ArrayList<>();
         for (int i = 0; i < smallMemoryValues.size(); i++) {
             for(int j = 0; j < smallJobValues.size(); j++) {
-                //first two values are differences between memory and job 1,
-                //second two values are differences between memory and job 2
+                //first value is difference between memory and job 1,
+                //second value is difference between memory and job 2
                 differences.add(smallMemoryValues.get(i) - smallJobValues.get(j));
             }
         }
+        for(int i = 0; i < smallJobValues.size(); i++) {
+            if(differences.get(0) > differences.get(1)) {
+                answerString.append("Job ").append(0).append(" has been placed in Memory Location ")
+                        .append(0).append(".\n");
+                fragmentationValue = fragmentationValue + (smallMemoryValues.get(0) -
+                        smallJobValues.get(0));
+                memoryList.add(String.valueOf(fixedMemoryRequirementArray.get(0)));
+                memoryList.add(String.valueOf(memoryAddresses.get(i)));
+                memoryList.add("Job " + 0);
+                memoryList.add("Busy");
+                answerString.append(memoryList).append("\n");
+                break;
+            }
+            else if(differences.get(0) < differences.get(1)) {
+                answerString.append("Job ").append(1).append(" has been placed in Memory Location ")
+                        .append(1).append(".\n");
+                fragmentationValue = fragmentationValue + (smallMemoryValues.get(0) -
+                        smallJobValues.get(1));
+                memoryList.add(String.valueOf(smallMemoryValues.get(0)));
+                memoryList.add(String.valueOf(memoryAddresses.get(i)));
+                memoryList.add("Job " + 1);
+                memoryList.add("Busy");
+                answerString.append(memoryList).append("\n");
+                break;
+            }
+        }
+
+        answerString.append("\nFragmentation: ").append(fragmentationValue).append("\n");
+        fixedResultLabel.setText(String.valueOf(answerString));
     }
 
     @FXML

@@ -102,11 +102,85 @@ public class DynamicView {
     @FXML
     protected void onBestDynamicClick() {
         int jobTotal = 0;
+        ArrayList<Integer> differences = new ArrayList<>();
+        for (int i = 0; i < smallMemoryValues.size(); i++) {
+            for(int j = 0; j < smallJobValues.size(); j++) {
+                //first value is difference between memory and job 1,
+                //second value is difference between memory and job 2
+                differences.add(smallMemoryValues.get(i) - smallJobValues.get(j));
+            }
+        }
+        for(int i = 0; i < smallJobValues.size(); i++) {
+            if(differences.get(0) < differences.get(1)) {
+                answerString.append("Job ").append(0).append(" has been placed in Memory Location ")
+                        .append(0).append(".\n");
+                fragmentationValue = fragmentationValue + (smallMemoryValues.get(0) -
+                        smallJobValues.get(0));
+                memoryList.add(String.valueOf(dynamicMemoryRequirementArray.get(0)));
+                memoryList.add(String.valueOf(memoryAddresses.get(i)));
+                memoryList.add("Job " + 0);
+                memoryList.add("Busy");
+                answerString.append(memoryList).append("\n");
+                break;
+            }
+            else if(differences.get(0) > differences.get(1)) {
+                answerString.append("Job ").append(1).append(" has been placed in Memory Location ")
+                        .append(1).append(".\n");
+                fragmentationValue = fragmentationValue + (smallMemoryValues.get(1) -
+                        smallJobValues.get(1));
+                memoryList.add(String.valueOf(smallMemoryValues.get(1)));
+                memoryList.add(String.valueOf(memoryAddresses.get(i)));
+                memoryList.add("Job " + 1);
+                memoryList.add("Busy");
+                answerString.append(memoryList).append("\n");
+                break;
+            }
+        }
+
+        answerString.append("\nFragmentation: ").append(fragmentationValue).append("\n");
+        dynamicResultLabel.setText(String.valueOf(answerString));
     }
 
     @FXML
     protected void onWorstDynamicClick() {
         int jobTotal = 0;
+        ArrayList<Integer> differences = new ArrayList<>();
+        for (int i = 0; i < smallMemoryValues.size(); i++) {
+            for(int j = 0; j < smallJobValues.size(); j++) {
+                //first value is difference between memory and job 1,
+                //second value is difference between memory and job 2
+                differences.add(smallMemoryValues.get(i) - smallJobValues.get(j));
+            }
+        }
+        for(int i = 0; i < smallJobValues.size(); i++) {
+            if(differences.get(0) > differences.get(1)) {
+                answerString.append("Job ").append(0).append(" has been placed in Memory Location ")
+                        .append(0).append(".\n");
+                fragmentationValue = fragmentationValue + (smallMemoryValues.get(0) -
+                        smallJobValues.get(0));
+                memoryList.add(String.valueOf(dynamicMemoryRequirementArray.get(0)));
+                memoryList.add(String.valueOf(memoryAddresses.get(i)));
+                memoryList.add("Job " + 0);
+                memoryList.add("Busy");
+                answerString.append(memoryList).append("\n");
+                break;
+            }
+            else if(differences.get(0) < differences.get(1)) {
+                answerString.append("Job ").append(1).append(" has been placed in Memory Location ")
+                        .append(1).append(".\n");
+                fragmentationValue = fragmentationValue + (smallMemoryValues.get(0) -
+                        smallJobValues.get(1));
+                memoryList.add(String.valueOf(smallMemoryValues.get(0)));
+                memoryList.add(String.valueOf(memoryAddresses.get(i)));
+                memoryList.add("Job " + 1);
+                memoryList.add("Busy");
+                answerString.append(memoryList).append("\n");
+                break;
+            }
+        }
+
+        answerString.append("\nFragmentation: ").append(fragmentationValue).append("\n");
+        dynamicResultLabel.setText(String.valueOf(answerString));
     }
 
     @FXML
