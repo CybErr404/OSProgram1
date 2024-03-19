@@ -11,7 +11,7 @@ public class MemoryApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(OperationsApplication.class.getResource("fixed-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 660, 470);
-        stage.setTitle("Expression Evaluator");
+        stage.setTitle("Memory Job Algorithms");
         stage.setScene(scene);
         stage.show();
     }

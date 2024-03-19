@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.operatingsystems.PageRemovalView"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.operatingsystems.PageRemovalView">
+   <children>
+      <Label id="authorLabel" layoutX="205.0" layoutY="374.0" text="Written and programmed by: Mia Watts">
+         <font>
+            <Font name="System Italic" size="11.0" />
+         </font>
+      </Label>
+      <Button id="fifoButton" layoutX="64.0" layoutY="73.0" mnemonicParsing="false" text="First-In, First-Out (FIFO)" />
+      <Button id="lruButton" layoutX="395.0" layoutY="73.0" mnemonicParsing="false" text="Least Recently Used (LRU)" />
+   </children>
 </AnchorPane>
