@@ -11,6 +11,16 @@ public class PageRemovalView {
     private Button fifoButton;
     @FXML
     private Button lruButton;
+    @FXML
+    private Label answerLabel;
 
+    @FXML
+    protected void onFIFOClick() {
 
+    }
+
+    @FXML
+    protected void onLRUClick() {
+
+    }
 }
