@@ -1,14 +1,16 @@
 package com.example.operatingsystems;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
-import java.io.IOException;
+import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 
 public class PageRemovalView {
+    @FXML
+    private Label authorLabel;
+    @FXML
+    private Button fifoButton;
+    @FXML
+    private Button lruButton;
+
 
 }
