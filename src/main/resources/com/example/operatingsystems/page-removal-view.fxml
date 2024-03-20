@@ -19,7 +19,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="32.0" layoutY="28.0" prefHeight="59.0" prefWidth="585.0" text="Click a button. The one on the left will show information related to the First-In, First-Out (FIFO) policy, and the second button will show information related to the Least Recently Used (LRU) policy." textAlignment="CENTER" wrapText="true" />
+      <Label layoutX="32.0" layoutY="28.0" prefHeight="59.0" prefWidth="585.0" text="Click a button. The one on the left will display information related to the First-In, First-Out (FIFO) policy, and the second button will display information related to the Least Recently Used (LRU) policy." textAlignment="CENTER" wrapText="true" />
       <Label fx:id="answerLabel" alignment="TOP_CENTER" layoutX="32.0" layoutY="114.0" prefHeight="305.0" prefWidth="585.0" textAlignment="CENTER" wrapText="true" />
    </children>
 </AnchorPane>
