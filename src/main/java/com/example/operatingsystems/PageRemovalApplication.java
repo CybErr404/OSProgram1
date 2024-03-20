@@ -15,7 +15,7 @@ public class PageRemovalApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(OperationsApplication.class.getResource("page-removal-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 610, 405);
+        Scene scene = new Scene(fxmlLoader.load(), 650, 445);
         stage.setTitle("Page Removal Policy Application");
         stage.setScene(scene);
         stage.show();
