@@ -6,8 +6,7 @@ package com.example.operatingsystems;
 
 import java.util.ArrayList;
 public class SchedulingAlgorithms {
-    public void firstComeFirstServed(ArrayList<String> jobs, ArrayList<Integer> arrivals,
-                                       ArrayList<Integer> cycles) {
+    public void firstComeFirstServed(ArrayList<String> jobs, ArrayList<Integer> arrivals) {
         double waitingTime = 0.0;
         double turnaroundTime = 0.0;
         ArrayList<Double> turnaroundTimesArray = new ArrayList<>();
@@ -43,8 +42,13 @@ public class SchedulingAlgorithms {
 
         double averageWaitingTime = 0.0;
         double averageTurnaroundTime = 0.0;
-        System.out.printf("%-15s %-15s", "\nAverage Waiting Time", "Average Turnaround Time");
-        System.out.printf("%-15.2f %-15.2f", averageWaitingTime, averageTurnaroundTime);
+        for (Double value : turnaroundTimesArray) {
+            averageTurnaroundTime = averageTurnaroundTime + value;
+        }
+        averageTurnaroundTime = averageTurnaroundTime / jobs.size();
+        System.out.println("\nAverage waiting and turnaround times for FCFS:");
+        System.out.printf("%-25s %-24s", "Average Waiting Time", "Average Turnaround Time\n");
+        System.out.printf("%-25.1f %-25.1f", averageWaitingTime, averageTurnaroundTime);
     }
 
     public void shortestRemainingTime(ArrayList<String> jobs, ArrayList<Integer> arrivals,
@@ -60,8 +64,13 @@ public class SchedulingAlgorithms {
 
         double averageWaitingTime = 0.0;
         double averageTurnaroundTime = 0.0;
-        System.out.printf("%-15s %-15s", "\nAverage Waiting Time", "Average Turnaround Time");
-        System.out.printf("%-15.2f %-15.2f", averageWaitingTime, averageTurnaroundTime);
+        for (Double value : turnaroundTimesArray) {
+            averageTurnaroundTime = averageTurnaroundTime + value;
+        }
+        averageTurnaroundTime = averageTurnaroundTime / jobs.size();
+        System.out.println("\nAverage waiting and turnaround times for FCFS:");
+        System.out.printf("%-25s %-24s", "Average Waiting Time", "Average Turnaround Time\n");
+        System.out.printf("%-25.1f %-25.1f", averageWaitingTime, averageTurnaroundTime);
     }
 
     public void roundRobin(ArrayList<String> jobs, ArrayList<Integer> arrivals,
@@ -77,7 +86,12 @@ public class SchedulingAlgorithms {
 
         double averageWaitingTime = 0.0;
         double averageTurnaroundTime = 0.0;
-        System.out.printf("%-15s %-15s", "\nAverage Waiting Time", "Average Turnaround Time");
-        System.out.printf("%-15.2f %-15.2f", averageWaitingTime, averageTurnaroundTime);
+        for (Double value : turnaroundTimesArray) {
+            averageTurnaroundTime = averageTurnaroundTime + value;
+        }
+        averageTurnaroundTime = averageTurnaroundTime / jobs.size();
+        System.out.println("\nAverage waiting and turnaround times for FCFS:");
+        System.out.printf("%-25s %-24s", "Average Waiting Time", "Average Turnaround Time\n");
+        System.out.printf("%-25.1f %-25.1f", averageWaitingTime, averageTurnaroundTime);
     }
 }

@@ -15,7 +15,7 @@ public class TestSchedulingAlgorithms {
         SchedulingAlgorithms test = new SchedulingAlgorithms();
 
         System.out.println("Simulating the First-Come, First-Served (FCFS) scheduling algorithm:");
-        test.firstComeFirstServed(jobArray, arrivalTimeArray, cycleTimeArray);
+        test.firstComeFirstServed(jobArray, arrivalTimeArray);
         //System.out.println("\nSimulating the Shortest Job Next (SJN) scheduling algorithm:");
         //test.shortestJobNext(jobArray, arrivalTimeArray, cycleTimeArray);
         //System.out.println("\nSimulating the Shortest Remaining Time (SRT) scheduling algorithm:");
