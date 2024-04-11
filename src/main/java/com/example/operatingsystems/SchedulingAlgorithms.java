@@ -76,7 +76,7 @@ public class SchedulingAlgorithms {
             averageTurnaroundTime = averageTurnaroundTime + value;
         }
         averageTurnaroundTime = averageTurnaroundTime / jobs.size();
-        System.out.println("\nAverage waiting and turnaround times for FCFS:");
+        System.out.println("\nAverage waiting and turnaround times for SRT:");
         System.out.printf("%-25s %-24s", "Average Waiting Time", "Average Turnaround Time\n");
         System.out.printf("%-25.1f %-25.1f", averageWaitingTime, averageTurnaroundTime);
     }
@@ -99,7 +99,7 @@ public class SchedulingAlgorithms {
             averageTurnaroundTime = averageTurnaroundTime + value;
         }
         averageTurnaroundTime = averageTurnaroundTime / jobs.size();
-        System.out.println("\nAverage waiting and turnaround times for FCFS:");
+        System.out.println("\nAverage waiting and turnaround times for Round Robin:");
         System.out.printf("%-25s %-24s", "Average Waiting Time", "Average Turnaround Time\n");
         System.out.printf("%-25.1f %-25.1f", averageWaitingTime, averageTurnaroundTime);
     }
