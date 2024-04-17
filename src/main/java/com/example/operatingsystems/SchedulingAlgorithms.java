@@ -104,20 +104,29 @@ public class SchedulingAlgorithms {
 
     public void roundRobin(ArrayList<String> jobs, ArrayList<Integer> arrivals,
                              ArrayList<Integer> cycles) {
-        double waitingTime;
-        double turnaroundTime;
+        double waitingTime = 0;
+        double turnaroundTime = 0;
         double finishTime = 0.0;
+        boolean notComplete = true;
         ArrayList<Double> turnaroundTimesArray = new ArrayList<>();
         ArrayList<Double> waitingTimesArray = new ArrayList<>();
         System.out.printf("%-15s %-20s %-15s", "Job", "Waiting Time", "Turnaround Time\n");
-        for(int i = 0; i < jobs.size(); i++) {
-            finishTime = finishTime + cycles.get(i);
-            waitingTime = finishTime;
-            turnaroundTime = Math.abs(finishTime - arrivals.get(i));
-            turnaroundTimesArray.add(turnaroundTime);
-            waitingTimesArray.add(waitingTime);
-            System.out.printf("%-15s %-20.1f %-15.1f", jobs.get(i), waitingTime, turnaroundTime);
-            System.out.println();
+        while(notComplete) {
+            for (int i = 0; i < jobs.size(); i++) {
+                if (cycles.get(i) <= 4) {
+                    finishTime = finishTime + cycles.get(i);
+                    waitingTime = finishTime;
+                    turnaroundTime = Math.abs(finishTime - arrivals.get(i));
+                    turnaroundTimesArray.add(turnaroundTime);
+                    waitingTimesArray.add(waitingTime);
+                }
+                else {
+                    cycles.set(i, i - 4);
+                }
+                System.out.printf("%-15s %-20.1f %-15.1f", jobs.get(i), waitingTime, turnaroundTime);
+                System.out.println();
+            }
+            notComplete = false;
         }
 
         double averageWaitingTime = 0.0;
