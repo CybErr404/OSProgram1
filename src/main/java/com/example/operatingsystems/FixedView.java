@@ -1,5 +1,6 @@
 package com.example.operatingsystems;
 
+//Import statements for running the application and adding labels/buttons.
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -9,15 +10,20 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+//Import statements for Exceptions, ArrayLists, Arrays, and Lists.
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @author Mia Watts
+ * This class is the FixedView class, which includes First Fit, Best Fit, Next Fit, and Worst Fit memory allocations.
+ * Each of these have fixed partitions rather than dynamic partitions.
+ */
 public class FixedView {
     private int X; //fixed partitioning memory size
-    private StringBuilder answerString;
-    private int memorySum;
+    private StringBuilder answerString; // holds the answer string
 
     private int fragmentationValue; // holds the total fragmentation value for each allocation scheme
     private ArrayList<Integer> fixedJobSizeArray; // holds job sizes for fixed memory allocation
@@ -25,15 +31,15 @@ public class FixedView {
 
     private ArrayList<Integer> memoryAddresses; // holds memory addresses for jobs
 
-    private ArrayList<String> memoryList;
+    private ArrayList<String> memoryList; // represents the memory list
 
-    private ArrayList<String> busyArray;
+    private ArrayList<String> busyArray; // holds memory slots that are busy
 
-    private ArrayList<Integer> smallJobValues;
+    private ArrayList<Integer> smallJobValues; // holds small jobs
 
-    private ArrayList<Integer> smallMemoryValues;
+    private ArrayList<Integer> smallMemoryValues; // holds small memory values
 
-    private int bigJob;
+    private int bigJob; //holds big jobs values
 
     // creation of all buttons related to fixed memory allocation.
     @FXML
@@ -70,13 +76,22 @@ public class FixedView {
         bigJob = 10000;
     }
 
+    /**
+     * Resets the answer string.
+     */
     @FXML
     protected void onResetClick1() {
         fixedResultLabel.setText("");
     }
 
+    /**
+     * Simulates First Fit. Jobs are placed into memory based on the first available memory slot
+     * regardless of whether the decision is the most efficient one that could have been made.
+     * Partitions are fixed, so they cannot change.
+     */
     @FXML
     protected void onFirstFixedClick() {
+        //Iterates through the jobs and puts them into memory based on where they fit first.
         for(int i = 0; i < fixedJobSizeArray.size(); i++) {
             for(int j = 0; j < fixedMemoryRequirementArray.size(); j++) {
                 if (fixedJobSizeArray.get(i) <= fixedMemoryRequirementArray.get(j)) {
@@ -94,13 +109,20 @@ public class FixedView {
                 }
             }
         }
+        //Prints the results into the answer string.
         answerString.append("\nFragmentation: ").append(fragmentationValue).append("\n");
         fixedResultLabel.setText(String.valueOf(answerString));
     }
 
+    /**
+     * Simulates Best Fit memory allocation. Jobs are placed into memory based on where they fit best.
+     * Partitions are fixed, so they cannot change.
+     */
     @FXML
     protected void onBestFixedClick() {
+        //Creates a differences array.
         ArrayList<Integer> differences = new ArrayList<>();
+        //Calculates the differences between jobs.
         for (int i = 0; i < smallMemoryValues.size(); i++) {
             for(int j = 0; j < smallJobValues.size(); j++) {
                 //first value is difference between memory and job 1,
@@ -108,7 +130,10 @@ public class FixedView {
                 differences.add(smallMemoryValues.get(i) - smallJobValues.get(j));
             }
         }
+        //Determines where the job should go.
         for(int i = 0; i < smallJobValues.size(); i++) {
+            //If the difference between the second spot is greater than the first spot,
+            //the job is placed in the first spot because it is the best fit.
             if(differences.get(0) < differences.get(1)) {
                 answerString.append("Job ").append(0).append(" has been placed in Memory Location ")
                         .append(0).append(".\n");
@@ -121,6 +146,8 @@ public class FixedView {
                 answerString.append(memoryList).append("\n");
                 break;
             }
+            //If the difference between the first spot is greater than the second spot,
+            //the job is placed in the second spot because it is the best fit.
             else if(differences.get(0) > differences.get(1)) {
                 answerString.append("Job ").append(1).append(" has been placed in Memory Location ")
                         .append(1).append(".\n");
@@ -134,14 +161,21 @@ public class FixedView {
                 break;
             }
         }
-
+        //Appends fragmentation and sets the result label to display text.
         answerString.append("\nFragmentation: ").append(fragmentationValue).append("\n");
         fixedResultLabel.setText(String.valueOf(answerString));
     }
 
+    /**
+     * Simulates Worst Fit memory allocation. It is the opposite of Best Fit, so the
+     * jobs are placed in the worst possible location (the spot that wastes the most memory).
+     * Partitions are fixed, so they cannot change.
+     */
     @FXML
     protected void onWorstFixedClick() {
+        //Creates a differences array.
         ArrayList<Integer> differences = new ArrayList<>();
+        //Iterates through the arrays to calculate the differences between jobs and memory slots.
         for (int i = 0; i < smallMemoryValues.size(); i++) {
             for(int j = 0; j < smallJobValues.size(); j++) {
                 //first value is difference between memory and job 1,
@@ -149,7 +183,10 @@ public class FixedView {
                 differences.add(smallMemoryValues.get(i) - smallJobValues.get(j));
             }
         }
+        //Determines where the jobs should go.
         for(int i = 0; i < smallJobValues.size(); i++) {
+            //If the difference between the second spot is less than the first spot,
+            //the job is placed in the first spot because it is the worst fit.
             if(differences.get(0) > differences.get(1)) {
                 answerString.append("Job ").append(0).append(" has been placed in Memory Location ")
                         .append(0).append(".\n");
@@ -162,6 +199,8 @@ public class FixedView {
                 answerString.append(memoryList).append("\n");
                 break;
             }
+            //If the difference between the first spot is less than the second spot,
+            //the job is placed in the second spot because it is the worst fit.
             else if(differences.get(0) < differences.get(1)) {
                 answerString.append("Job ").append(1).append(" has been placed in Memory Location ")
                         .append(1).append(".\n");
@@ -175,13 +214,18 @@ public class FixedView {
                 break;
             }
         }
-
+        //Displays the answer string.
         answerString.append("\nFragmentation: ").append(fragmentationValue).append("\n");
         fixedResultLabel.setText(String.valueOf(answerString));
     }
 
+    /**
+     * Simulates Next Fit memory allocation. Jobs are placed in the next available location.
+     * Partitions are fixed, so they cannot change.
+     */
     @FXML
     protected void onNextFixedClick() {
+        //Determines where the job should go.
         for(int i = 0; i < fixedJobSizeArray.size(); i++) {
             for(int j = 0; j < fixedMemoryRequirementArray.size(); j++) {
                 if (fixedJobSizeArray.get(i) <= fixedMemoryRequirementArray.get(j)) {
@@ -199,10 +243,16 @@ public class FixedView {
                 }
             }
         }
+        //Displays the results.
         answerString.append("\nFragmentation: ").append(fragmentationValue).append("\n");
         fixedResultLabel.setText(String.valueOf(answerString));
     }
 
+    /**
+     * Switches the screen to the dynamic version of the application.
+     * @param event - accepts an event parameter to switch.
+     * @throws IOException in case there is an error with switching.
+     */
     @FXML
     protected void onSwitchDynamicClick(javafx.event.ActionEvent event) throws IOException {
         Parent p = FXMLLoader.load(getClass().getResource("dynamic-view.fxml"));
