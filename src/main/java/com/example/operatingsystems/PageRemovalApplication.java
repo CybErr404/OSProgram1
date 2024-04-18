@@ -1,11 +1,18 @@
 package com.example.operatingsystems;
 
+//These are the import statements for loading the FXML files, starting the JavaFX application,
+//setting the stage, and catching errors.
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 
+/**
+ * @author Mia Watts
+ * This is the launcher for the page removal application. The scene is set to the page removal view file,
+ * and the dimensions and title are set.
+ */
 public class PageRemovalApplication extends Application {
 
     public static void main(String[] args) {

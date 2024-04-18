@@ -1,14 +1,22 @@
 package com.example.operatingsystems;
 
+//These import statements help with starting the JavaFX files. They also import labels and buttons.
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 
+//These import systems import the ArrayList, Arrays, and Objects classes for use in the program.
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
+/**
+ * @author Mia Watts
+ * This is the "behind the scenes" program for how the application works. Each method for the program
+ * was created here along with all variables and text setters. The program features FIFO and LRU.
+ */
 public class PageRemovalView {
+    //The next four statements creates private variables which consist of two labels and two buttons.
     @FXML
     private Label authorLabel;
     @FXML
@@ -18,6 +26,10 @@ public class PageRemovalView {
     @FXML
     private Label answerLabel;
 
+    /**
+     * This method represents the FIFO algorithm. It is run when the appropriate button
+     * within the application is clicked.
+     */
     @FXML
     protected void onFIFOClick() {
         //Creates an array that represents the pages in the memory list.
@@ -70,6 +82,7 @@ public class PageRemovalView {
                 }
             }
         }
+        //Calculates the failure rate and appends the result to the String.
         double pageRequests = toBeReferenced.size();
         double failureRate = (failureCount / pageRequests) * 100;
         answerString.append("\nTotal failure rate:\n").append(failureCount).append(" / ").append(pageRequests)
@@ -77,6 +90,10 @@ public class PageRemovalView {
         answerLabel.setText(String.valueOf(answerString));
     }
 
+    /**
+     * This method represents the LRU algorithm. It is run when the appropriate button
+     * within the application is clicked.
+     */
     @FXML
     protected void onLRUClick() {
         //Creates an array that represents the pages in the memory list.
@@ -130,6 +147,7 @@ public class PageRemovalView {
                 }
             }
         }
+        //Calculates the failure rate and appends the result to the String.
         double pageRequests = toBeReferenced.size();
         double failureRate = (failureCount / pageRequests) * 100;
         answerString.append("\nTotal failure rate:\n").append(failureCount).append(" / ").append(pageRequests)
