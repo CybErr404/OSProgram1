@@ -1,5 +1,6 @@
 package com.example.operatingsystems;
 
+//Import statements for the JavaFX application, buttons, labels, text fields, arrays, Strings, and stacks.
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -9,7 +10,14 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 import java.util.Stack;
 
+/**
+ * @author Mia Watts
+ * This program takes an expression and evaluates it based on the order of operations methods.
+ * Stacks are used to evaluate expressions that are converted to postfix form after they are
+ * added to the application in the form of text input.
+ */
 public class EvaluateView {
+    //Declares six private variables that will be used in the program.
     private Stack stack;
     public Button evaluateButton;
     public Label stepsLabel;
@@ -19,17 +27,28 @@ public class EvaluateView {
     @FXML
     private Label outputLabel;
 
+    /**
+     * Constructor that initializes the stack.
+     */
     public EvaluateView() //main constructor that initializes the stack used to pop/push the operands and numbers.
     {
         stack = new Stack(); //initializes stack.
     }
 
+    /**
+     * This method is run every time the evaluation button is clicked, regardless of whether the
+     * user has added anything into the text box or not. If they haven't, the user is prompted
+     * to enter something into the box to start using the application.
+     */
     @FXML
     protected void onEvaluateClick() {
         StringBuilder strBuilder = new StringBuilder();
+        //Checks to see if something has been entered. If not, the user is prompted to enter something.
         if(textInput.getText().equals("")) {
             outputLabel.setText("Enter something in the text box to begin!");
         }
+        //If the user has entered something, the program checks to see if what they entered is
+        //a proper mathematical expression. If it isn't, the user must try again.
         else {
             String expression = textInput.getText().trim();
             if (!((expression.contains("*")) || (expression.contains("/")) || (expression.contains("+"))
@@ -58,17 +77,23 @@ public class EvaluateView {
                     }
                 }
 
+                //Creates new String variable that will be evaluated in postfix form after conversion.
                 String newString = strBuilder.toString();
 
-
+                //Sets the answer label to the result
                 answerLabel.setText(evaluate(newString));
+                //Shows the original expression and the array
                 outputLabel.setText("Original expression: " + expression + " --> Array: " +
                         expressionList);
             }
         }
     }
 
-    //Method checks to see if the particular item in the array is a number.
+    /**
+     * This method checks to see if the particular item in the array is a number.
+     * @param arrayValue - value to be checked.
+     * @return true if it is a number, and false otherwise.
+     */
     public boolean isNumber(String arrayValue) { //takes an array value as a parameter
         try {
             Double.parseDouble(arrayValue);  //checks if the value can be converted properly to a double
@@ -80,7 +105,11 @@ public class EvaluateView {
         }
     }
 
-    //method computes the expression to return a proper result
+    /**
+     * This method computes the expression given as a parameter to return a result.
+     * @param expr - math expression that is to be evaluated.
+     * @return the result of the calculation.
+     */
     public String evaluate(String expr)
     {
         //declare operands: op1 and op2 both integer
@@ -126,7 +155,14 @@ public class EvaluateView {
         return item + "\n" + "Result: " + result;
     }
 
-    //evaluates a single operation, using cases to check whether the operation is multiplication, division, addition, or subtraction
+    /**
+     * Evaluates a single operation, using cases  to check whether the operation is multiplication,
+     * division, addition, or subtraction.
+     * @param operation - operation to be performed on the two numbers.
+     * @param op1 - first number to be multiplied, divided, added, or subtracted.
+     * @param op2 - second number to be multiplied, divided, added, or subtracted.
+     * @return the result of the single evaluation of two numbers and an operation.
+     */
     private double evalSingleOp(String operation, double op1, double op2)
     {
         //declare a variable to hold the final result
@@ -149,7 +185,11 @@ public class EvaluateView {
         return result;
     }
 
-    //method that checks whether a token in the stack is an operator, otherwise returns false
+    /**
+     * Method that checks whether a String token in the stack is an operator.
+     * @param token - String value to be checked.
+     * @return true if the token is an operation, and false otherwise.
+     */
     private boolean isOperator(String token)
     {
         //if the token is "+" or "-" or "*" or "/" then return true

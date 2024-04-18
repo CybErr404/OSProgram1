@@ -1,11 +1,16 @@
 package com.example.operatingsystems;
 
+//Import statements for the application.
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 
+/**
+ * @author Mia Watts
+ * This is the launcher class for the order of operations program.
+ */
 public class OperationsApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
