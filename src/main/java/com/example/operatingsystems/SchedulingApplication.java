@@ -9,8 +9,8 @@ import java.io.IOException;
 
 /**
  * @author Mia Watts
- * This is the launcher class for the memory application. The fixed methods appear first, but the
- * user can click a button that changes the current view to the dynamic methods.
+ * This is the launcher class for the scheduling algorithms application. The application focuses on
+ * First-Come, First-Served, Shortest Job Next, Shortest Remaining Time, and Rount Robin scheduling.
  */
 public class SchedulingApplication extends Application {
     @Override
