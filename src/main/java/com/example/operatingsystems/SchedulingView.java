@@ -53,6 +53,12 @@ public class SchedulingView {
     ArrayList<Integer> orderedCycleTimeArray
             = new ArrayList<>(Arrays.asList(1, 1, 2, 4, 6, 8, 9, 11, 14, 16));
 
+    /**
+     * This method employs First-Come, First-Served scheduling techniques to determine which
+     * job is executed first. The method calculates the waiting time, which in this case is 0 since
+     * the text described this algorithm as having no wait queues or waiting times. The algorithm
+     * also calculates the turnaround time, which is the finish time minus the arrival time of each job.
+     */
     @FXML
     protected void onFCFSClick() {
         //Declares/initializes the original waiting, turnaround, and finish times.
@@ -89,6 +95,11 @@ public class SchedulingView {
         System.out.println();
     }
 
+    /**
+     * This method uses the ordered arrays declared and initialized within the tester class.
+     * It represents the Shortest Job Next algorithm which only allows a job to execute if it has
+     * the shortest runtime.
+     */
     @FXML
     protected void onSJNClick() {
         //Declares and/or initializes waiting, turnaround, and finish times.
@@ -131,6 +142,11 @@ public class SchedulingView {
         System.out.println();
     }
 
+    /**
+     * This method simulates the Shortest Remaining Time algorithm. For now, it is quite similar to
+     * the SJN method, as with what we were given, there weren't many clear differences in how
+     * the times are calculated. Further work will hopefully be done to better this algorithm.
+     */
     @FXML
     protected void onSRTClick() {
         //Declares and/or initializes waiting, turnaround, and finish times.
@@ -172,6 +188,12 @@ public class SchedulingView {
         System.out.println();
     }
 
+    /**
+     * This is the last method in the assignment: Round Robin. A time slot is given to each job. If
+     * the job can be finished within that time, it is, but if it isn't, the time slot is subtracted
+     * from the total time it takes to finish the job, and the job will then need to wait until it can
+     * run until completely done.
+     */
     @FXML
     protected void onRoundRobinClick() {
         //Declares and/or initializes the waiting times, turnaround times, and finish times.
