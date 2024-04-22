@@ -68,6 +68,7 @@ public class SchedulingView {
      */
     @FXML
     protected void onFCFSClick() {
+        answerString.setLength(0);
         //Declares/initializes the original waiting, turnaround, and finish times.
         double waitingTime = 0.0;
         double turnaroundTime;
@@ -75,15 +76,15 @@ public class SchedulingView {
         //Creates an array that will store the turnaround times.
         ArrayList<Double> turnaroundTimesArray = new ArrayList<>();
         //Prints the beginning of the result table.
-        System.out.printf("%-15s %-20s %-15s", "Job", "Waiting Time", "Turnaround Time\n");
+        answerString.append("Job     Waiting Time     Turnaround Time\n");
         //Iterates through the arrays to calculate the finish times and turnaround times.
         //Prints each iteration into the table once complete.
         for(int i = 0; i < jobArray.size(); i++) {
             finishTime = finishTime + cycleTimeArray.get(i);
             turnaroundTime = finishTime - arrivalTimeArray.get(i);
             turnaroundTimesArray.add(turnaroundTime);
-            System.out.printf("%-15s %-20.1f %-15.1f", jobArray.get(i), waitingTime, turnaroundTime);
-            System.out.println();
+            answerString.append(jobArray.get(i)).append("\t").append(waitingTime).append("\t")
+                    .append(turnaroundTime).append("\n");
         }
 
         //Declares and initializes average times which will be printed in a separate table.
@@ -110,6 +111,7 @@ public class SchedulingView {
      */
     @FXML
     protected void onSJNClick() {
+        answerString.setLength(0);
         //Declares and/or initializes waiting, turnaround, and finish times.
         double waitingTime;
         double turnaroundTime;
@@ -118,7 +120,7 @@ public class SchedulingView {
         ArrayList<Double> turnaroundTimesArray = new ArrayList<>();
         ArrayList<Double> waitingTimesArray = new ArrayList<>();
         //Prints the first row of the result table.
-        System.out.printf("%-15s %-20s %-15s", "Job", "Waiting Time", "Turnaround Time\n");
+        answerString.append("Job     Waiting Time     Turnaround Time\n");
         //Iterates through the arrays and calculates finish times, waiting times, and turnaround times.
         for(int i = 0; i < jobArray.size(); i++) {
             finishTime = finishTime + cycleTimeArray.get(i);
@@ -127,8 +129,8 @@ public class SchedulingView {
             turnaroundTimesArray.add(turnaroundTime);
             waitingTimesArray.add(waitingTime);
             //Prints each iteration into the table.
-            System.out.printf("%-15s %-20.1f %-15.1f", jobArray.get(i), waitingTime, turnaroundTime);
-            System.out.println();
+            answerString.append(jobArray.get(i)).append("\t").append(waitingTime).append("\t")
+                    .append(turnaroundTime).append("\n");
         }
 
         //The next block of statements calculates both the average of the waiting times and the
@@ -158,6 +160,7 @@ public class SchedulingView {
      */
     @FXML
     protected void onSRTClick() {
+        answerString.setLength(0);
         //Declares and/or initializes waiting, turnaround, and finish times.
         double waitingTime;
         double turnaroundTime;
@@ -166,7 +169,7 @@ public class SchedulingView {
         ArrayList<Double> turnaroundTimesArray = new ArrayList<>();
         ArrayList<Double> waitingTimesArray = new ArrayList<>();
         //Prints the first row of the table.
-        System.out.printf("%-15s %-20s %-15s", "Job", "Waiting Time", "Turnaround Time\n");
+        answerString.append("Job     Waiting Time     Turnaround Time\n");
         //Iterates through the jobs and calculates the finish times, waiting times, and turnaround times,
         //printing them out each time an iteration has been completed.
         for(int i = 0; i < jobArray.size(); i++) {
@@ -175,8 +178,8 @@ public class SchedulingView {
             turnaroundTime = Math.abs(finishTime - arrivalTimeArray.get(i));
             turnaroundTimesArray.add(turnaroundTime);
             waitingTimesArray.add(waitingTime);
-            System.out.printf("%-15s %-20.1f %-15.1f", jobArray.get(i), waitingTime, turnaroundTime);
-            System.out.println();
+            answerString.append(jobArray.get(i)).append("\t").append(waitingTime).append("\t")
+                    .append(turnaroundTime).append("\n");
         }
         //The following block of statements calculates the average waiting times and average turnaround
         //times for the jobs. This could be separated into a different method to avoid repetition.
@@ -206,6 +209,7 @@ public class SchedulingView {
      */
     @FXML
     protected void onRoundRobinClick() {
+        answerString.setLength(0);
         //Declares and/or initializes the waiting times, turnaround times, and finish times.
         double waitingTime = 0;
         double turnaroundTime = 0;
