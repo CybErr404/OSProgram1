@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.operatingsystems.SchedulingView">
    <children>
-      <Label layoutX="205.0" layoutY="377.0" text="Written and programmed by: Mia Watts">
+      <Label layoutX="212.0" layoutY="401.0" text="Written and programmed by: Mia Watts">
          <font>
             <Font name="System Italic" size="11.0" />
          </font>
@@ -18,10 +18,10 @@
          </font>
       </Label>
       <Label layoutX="23.0" layoutY="32.0" prefHeight="72.0" prefWidth="553.0" text="Click a button to start! First-Come, First-Served (FCFS) finishes jobs in order. Shortest Job Next (SJN) finishes the job that is the shortest first. Shortest Remaining Time (SRT) finishes the job with the smallest execution time remaining. Round Robin has jobs take turns, giving each a specific timeframe in which to execute." textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="fcfsButton" layoutX="65.0" layoutY="113.0" mnemonicParsing="false"  onAction="#onFCFSClick" text="FCFS" />
+      <Button fx:id="fcfsButton" layoutX="65.0" layoutY="113.0" mnemonicParsing="false" onAction="#onFCFSClick" text="FCFS" />
       <Button fx:id="sjnButton" layoutX="185.0" layoutY="113.0" mnemonicParsing="false" onAction="#onSJNClick" text="SJN" />
       <Button fx:id="srtButton" layoutX="377.0" layoutY="113.0" mnemonicParsing="false" onAction="#onSRTClick" text="SRT" />
-      <Button fx:id="roundRobinButton" layoutX="468.0" layoutY="113.0" mnemonicParsing="false" onAction="#onRoundRobinClick" text="Round Robin" />
-      <Label fx:id="answerLabel" alignment="CENTER" layoutX="14.0" layoutY="146.0" prefHeight="229.0" prefWidth="570.0" textAlignment="CENTER" />
+      <Button fx:id="roundRobinButton" layoutX="463.0" layoutY="113.0" mnemonicParsing="false" onAction="#onRoundRobinClick" text="Round Robin" />
+      <Label fx:id="answerLabel" alignment="CENTER" layoutX="14.0" layoutY="146.0" prefHeight="251.0" prefWidth="570.0" textAlignment="CENTER" />
    </children>
 </AnchorPane>

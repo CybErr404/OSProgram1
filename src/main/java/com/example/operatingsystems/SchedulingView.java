@@ -34,6 +34,13 @@ public class SchedulingView {
     //Holds the answer string that is printed onto the application window.
     private StringBuilder answerString;
 
+    /**
+     * Constructor that initializes the StringBuilder, so it isn't null.
+     */
+    public SchedulingView() {
+        answerString = new StringBuilder("");
+    }
+
     //Job array in alphabetical order.
     ArrayList<String> jobArray
             = new ArrayList<>(Arrays.asList("A", "B", "C", "D", "E", "F", "G", "H", "I", "J"));
@@ -89,10 +96,11 @@ public class SchedulingView {
         //Calculates the average of the turnaround times.
         averageTurnaroundTime = averageTurnaroundTime / jobArray.size();
         //The next few statements print the waiting and turnaround time averages table.
-        System.out.println("\nAverage waiting and turnaround times for FCFS:");
-        System.out.printf("%-25s %-24s", "Average Waiting Time", "Average Turnaround Time\n");
-        System.out.printf("%-25.1f %-25.1f", averageWaitingTime, averageTurnaroundTime);
-        System.out.println();
+        answerString.append("\nAverage waiting and turnaround times for Round Robin:\n");
+        answerString.append("Average Waiting Time\t").append("Average Turnaround Time\n");
+        answerString.append(averageWaitingTime).append("     ").append(averageTurnaroundTime).append("\n");
+
+        answerLabel.setText(String.valueOf(answerString));
     }
 
     /**
@@ -136,10 +144,11 @@ public class SchedulingView {
         }
         averageTurnaroundTime = averageTurnaroundTime / jobArray.size();
         //Prints the averages in a table.
-        System.out.println("\nAverage waiting and turnaround times for SJN:");
-        System.out.printf("%-25s %-24s", "Average Waiting Time", "Average Turnaround Time\n");
-        System.out.printf("%-25.1f %-25.1f", averageWaitingTime, averageTurnaroundTime);
-        System.out.println();
+        answerString.append("\nAverage waiting and turnaround times for Round Robin:\n");
+        answerString.append("Average Waiting Time\t").append("Average Turnaround Time\n");
+        answerString.append(averageWaitingTime).append("     ").append(averageTurnaroundTime).append("\n");
+
+        answerLabel.setText(String.valueOf(answerString));
     }
 
     /**
@@ -182,10 +191,11 @@ public class SchedulingView {
         }
         averageTurnaroundTime = averageTurnaroundTime / jobArray.size();
         //These statements print the averages table.
-        System.out.println("\nAverage waiting and turnaround times for SRT:");
-        System.out.printf("%-25s %-24s", "Average Waiting Time", "Average Turnaround Time\n");
-        System.out.printf("%-25.1f %-25.1f", averageWaitingTime, averageTurnaroundTime);
-        System.out.println();
+        answerString.append("\nAverage waiting and turnaround times for Round Robin:\n");
+        answerString.append("Average Waiting Time\t").append("Average Turnaround Time\n");
+        answerString.append(averageWaitingTime).append("     ").append(averageTurnaroundTime).append("\n");
+
+        answerLabel.setText(String.valueOf(answerString));
     }
 
     /**
@@ -207,7 +217,7 @@ public class SchedulingView {
         ArrayList<Double> turnaroundTimesArray = new ArrayList<>();
         ArrayList<Double> waitingTimesArray = new ArrayList<>();
         //Prints the first row of the table.
-        System.out.printf("%-15s %-20s %-15s", "Job", "Waiting Time", "Turnaround Time\n");
+        answerString.append("Job     Waiting Time     Turnaround Time\n");
         //While loop to determine whether all jobs have been completed.
         while(notComplete) {
             //For loop to calculate the times.
@@ -228,7 +238,8 @@ public class SchedulingView {
                     cycleTimeArray.set(i, i - 4);
                 }
                 //Prints the table row after each iteration.
-                System.out.printf("%-15s %-20.1f %-15.1f", jobArray.get(i), waitingTime, turnaroundTime);
+                answerString.append(jobArray.get(i)).append("\t").append(waitingTime).append("\t")
+                        .append(turnaroundTime).append("\n");
                 System.out.println();
             }
             //Sets the flag = false to stop the loop.
@@ -247,9 +258,10 @@ public class SchedulingView {
         }
         averageTurnaroundTime = averageTurnaroundTime / jobArray.size();
         //Prints the averages table.
-        System.out.println("\nAverage waiting and turnaround times for Round Robin:");
-        System.out.printf("%-25s %-24s", "Average Waiting Time", "Average Turnaround Time\n");
-        System.out.printf("%-25.1f %-25.1f", averageWaitingTime, averageTurnaroundTime);
-        System.out.println();
+        answerString.append("\nAverage waiting and turnaround times for Round Robin:\n");
+        answerString.append("Average Waiting Time\t").append("Average Turnaround Time\n");
+        answerString.append(averageWaitingTime).append("     ").append(averageTurnaroundTime).append("\n");
+
+        answerLabel.setText(String.valueOf(answerString));
     }
 }
