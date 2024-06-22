@@ -3,6 +3,7 @@ package com.example.operatingsystems;
 //Mia Watts
 //April 21, 2024
 //GUI VERSION
+//JARs were added in April 2024.
 
 //Import statements for the buttons, labels, and the JavaFX application.
 import javafx.fxml.FXML;
