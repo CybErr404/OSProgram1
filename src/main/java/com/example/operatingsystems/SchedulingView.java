@@ -59,7 +59,7 @@ public class SchedulingView {
             = new ArrayList<>(Arrays.asList(10, 17, 3, 14, 9, 19, 12, 5, 16, 0));
     //Ordered cycle time array (for SJN and SRT).
     ArrayList<Integer> orderedCycleTimeArray
-            = new ArrayList<>(Arrays.asList(1, 1, 2, 4, 6, 8, 9, 11, 14, 16));
+            = new ArrayList<>(Arrays.asList(1, 2, 2, 4, 6, 8, 9, 11, 14, 16));
 
     /**
      * This method employs First-Come, First-Served scheduling techniques to determine which
